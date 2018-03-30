@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mysema.scalagen</groupId>
-  <artifactId>scalagen-root</artifactId>
-  <version>0.3.2</version>
-  <name>Scalagen - parent</name>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.mysema.home</groupId>
-    <artifactId>mysema-source</artifactId>
-    <version>0.3.1</version>
-  </parent>
+    <parent>
+        <groupId>com.carrotgarden.a</groupId>
+        <artifactId>carrot-a</artifactId>
+        <version>0-SNAPSHOT</version>
+        <relativePath>.mvn</relativePath>
+    </parent>
 
-  <packaging>pom</packaging>
+    <groupId>com.carrotgarden.scalagen</groupId>
+    <artifactId>scalagen-a</artifactId>
+    <version>0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-  <inceptionYear>2011</inceptionYear>
-  
-  <properties>    
-    <failIfNoTests>false</failIfNoTests>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    
-  </properties>
-   
-  <organization>
-    <name>Mysema Ltd</name>
-    <url>http://www.mysema.com</url>
-  </organization>
+    <properties>
 
-  <modules>
-    <module>scalagen</module>
-    <module>scalagen-maven-plugin</module>  
-  </modules>
+        <release.epoch>1.0.0</release.epoch>
+
+        <failIfNoTests>false</failIfNoTests>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <version.scala.epoch>2.11</version.scala.epoch>
+        <version.scala.release>2.11.12</version.scala.release>
+
+        <bintray.subject>random-scalor</bintray.subject>
+        <bintray.repository>maven</bintray.repository>
+
+    </properties>
+
+    <modules>
+        <module>scalagen</module>
+        <module>scalagen-maven-plugin</module>
+    </modules>
 
 </project>
-

@@ -27,7 +27,7 @@ object Converter {
   /**
    * default instance for Converter type
    */
-  lazy val instance = instance29
+  lazy val instance = instance211
   
   /**
    * Converter targeting scala 2.9

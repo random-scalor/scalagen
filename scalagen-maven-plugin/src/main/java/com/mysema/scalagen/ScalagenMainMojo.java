@@ -19,34 +19,40 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 
 /**
- * @phase generate-sources
- * @goal main 
  *
  */
-public class ScalagenMojo extends AbstractMojo {
-    
-    /**
-    * @parameter expression="${project}" readonly=true required=true
-    */
-    private MavenProject project;
+@Mojo( //
+		name = "main", //
+		defaultPhase = LifecyclePhase.GENERATE_SOURCES //
+)
+public class ScalagenMainMojo extends ScalagenAnyMojo {
 
-    /**
-     * @parameter default-value="src/main/scala" expression="${targetFolder}"
-     */
-    private String targetFolder;
-    
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        File in = new File(project.getBuild().getSourceDirectory());
-        if (in.exists()) {
-            File out = new File(targetFolder); 
-            Converter.instance().convert(in, out);    
-        } else {
-            throw new MojoFailureException(in.getPath() + " doesn't exist");
-        }
-        
-    }
+	/**
+	 * 
+	 */
+	@Parameter(name = "sourceFolder", property = "sourceFolder", defaultValue = "${project.basedir}/repo/src/main/java")
+	File sourceDir;
+
+	/**
+	 * 
+	 */
+	@Parameter(name = "targetFolder", property = "targetFolder", defaultValue = "${project.basedir}/src/main/scala")
+	File targetDir;
+
+	@Override
+	File sourceFolder() {
+		return sourceDir;
+	}
+
+	@Override
+	File targetFolder() {
+		return targetDir;
+	}
 
 }
